@@ -1,0 +1,60 @@
+<section>
+  <section>
+    <dl>
+      <dt><h3>HTTP Request Methods</h3></dt>
+      <dd>
+        Defines the type of the HTTP request, commonly found in the form of GET
+        and POST
+      </dd>
+      <hr />
+      <dd>
+        APIs should use methods to understand what operation to perform on the
+        identified resource/collection
+      </dd>
+      <br />
+    </dl>
+  </section>
+  <section>
+    <h2>CRUD</h2>
+    <table>
+      <tr>
+        <th><h4>Operation</h4></th>
+        <th><h4>Method</h4></th>
+      </tr>
+      <tr>
+        <td>Create</td>
+        <td>POST</td>
+      </tr>
+      <tr>
+        <td>Read</td>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <td>Update</td>
+        <td>PATCH/PUT</td>
+      </tr>
+      <tr>
+        <td>Delete</td>
+        <td>DELETE</td>
+      </tr>
+    </table>
+  </section>
+  <section>
+    <h2>PATCH VS PUT</h2>
+    <dl>
+      <dt>PUT</dt>
+      <dd>
+        Will replace an existing resource or create it if it isn't present.
+        Expects to receive a complete object.
+      </dd>
+    </dl>
+    <hr />
+    <dl>
+      <dt>PATCH</dt>
+      <dd>
+        Will only update specified properties and can only operate on existing
+        resources.
+      </dd>
+    </dl>
+  </section>
+</section>

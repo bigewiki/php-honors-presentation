@@ -1,0 +1,65 @@
+<!-- what is an endpoint? -->
+<section>
+  <section>
+    <dl>
+      <dt><h3>Endpoint</h3></dt>
+      <dd>Similar to a synapse, endpoints allow programs to communicate.</dd>
+      <hr />
+      <dd>In our project endpoints are represented as URLs</dd>
+      <br />
+      <dd style="text-align:center; color: #3549F9;">
+        <strong>https://nbtl.mesacc.edu/superuser/honors-api/stories</strong>
+      </dd>
+    </dl>
+  </section>
+  <section>
+    <h3>In Production...</h3>
+    <br />
+    <ul>
+      <li>
+        The API endpoint shouldn't change the kind of parameters it expects
+      </li>
+      <br />
+      <li>
+        The API endpoint shouldn't change the format of the data it returns
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h4>Request endpoints should clearly communicate data structure</h4>
+    <hr />
+    <p>
+      https://nbtl.mesacc.edu/superuser/honors-api/<span style="color: #3549F9"
+        >stories</span
+      >/<span style="color: #8335F9">1</span>
+      <br />
+      <br />
+      <ul><li>
+          <span style="color: #3549F9"
+          >Collection</span> (Parent of resource)
+      </li><li><span style="color: #8335F9">Resource</span> (Child of collection)</li></ul>
+    </p>
+  </section>
+  <section>
+    <ul>
+      <li>
+        Use keywords that well represent the data objects
+        <ul>
+          <li>schema</li>
+          <li>relationships</li>
+        </ul>
+      </li>
+      <li>Be organized hierarchically</li>
+      <li>
+        Should not be named after verbs
+        <ul>
+          <li>operations</li>
+          <li>actions</li>
+          <li>instead use methods</li>
+        </ul>
+      </li>
+      <li>Be hyphen-separated (no underscores)</li>
+      <li>Should not require trailing forward slash</li>
+    </ul>
+  </section>
+</section>

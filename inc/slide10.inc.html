@@ -1,0 +1,101 @@
+<section data-background="#051c33">
+  <section>
+    <h3>/users/login</h3>
+    <p>
+      Will respond with a new API token to use in non-GET operations, a creation
+      value, which shows when the key was created, and an expiration value,
+      which details how long the key is valid. Requires the username (email) and
+      password.
+    </p>
+  </section>
+  <section>
+    <h3>REQUEST (POST PARAMETERS)</h3>
+    <ul>
+      <li>username: string (required)</li>
+      <li>password: string (required)</li>
+    </ul>
+  </section>
+  <section>
+    <h3>RESPONSE OBJECT</h3>
+    <ul>
+      <li>success: int</li>
+      <li>res: object</li>
+      <li>res.creation: datetime</li>
+      <li>res.expiration: datetime</li>
+      <li>res.token: string</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Login Form (Request Token)</h2>
+    <iframe
+      style="width: 100%; height: 300px;background-color:white;"
+      src="utils/login.html"
+    ></iframe>
+    <label style="font-size:20px;" for="login-response"
+      >Paste response here
+    </label>
+    <input name="login-response" type="text" id="login-response" />
+    <button id="login-response-submit">
+      <i class="fas fa-check"></i>
+    </button>
+  </section>
+  <section>
+    <div id="login-response-table">
+      Go back and input the response
+    </div>
+  </section>
+  <section
+    data-background-iframe="utils/users1.gist.html"
+    data-background-interactive
+  ></section>
+</section>
+<script>
+  let loginResponse = {
+    success: undefined,
+    res: {
+      creation: undefined,
+      expiration: undefined,
+      token: undefined
+    }
+  };
+
+  const parseLoginJson = () => {
+    if (document.getElementById("login-response").value.length > 0) {
+      document.getElementById("login-response-submit").style.backgroundColor =
+        "#004C00";
+      loginResponse = JSON.parse(
+        document.getElementById("login-response").value
+      );
+      document.getElementById("login-response-table").innerHTML = `
+        <table>
+            <tr>
+                <td>Success</td>
+                <td>${loginResponse.success}</td>
+            </tr>
+            <tr>
+                <td>Creation</td>
+                <td>${loginResponse.res.creation}</td>
+            </tr>
+            <tr>
+                <td>Expiration</td>
+                <td>${loginResponse.res.expiration}</td>
+            </tr>
+            <tr>
+                <td>Token Prefix</td>
+                <td>${loginResponse.res.token.split(".")[0]}</td>
+            </tr>
+            <tr>
+                <td>Token Body</td>
+                <td>${loginResponse.res.token.split(".")[1]}</td>
+            </tr>
+        </table>
+        <br/>
+        <p>Full token: <span style="color:#afcef9;font-weight:bold;">${
+          loginResponse.res.token
+        }</span></p>
+    `;
+    }
+  };
+
+  document.getElementById("login-response-submit").onclick = parseLoginJson;
+</script>

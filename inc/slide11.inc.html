@@ -1,0 +1,25 @@
+<section data-background="#051c33">
+  <section>
+    <h3>/users/login</h3>
+    <p>
+      Will respond with either an error or success message depending on the
+      token sent in the request header. Expects a key of 'token' with the value
+      of the token.
+    </p>
+  </section>
+  <section>
+    <h3>REQUEST (POST PARAMETERS)</h3>
+    <ul>
+      <li>Header > token: string (required)</li>
+    </ul>
+  </section>
+  <section>
+    <h3>RESPONSE OBJECT</h3>
+    <ul>
+      <li>success: int</li>
+      <li>res: object</li>
+      <li>res.valid: bool</li>
+      <li>res.message: string</li>
+    </ul>
+  </section>
+</section>
