@@ -1,1 +1,28 @@
-<section data-background="#051c33"></section>
+<section data-background="#051c33">
+  <section>
+    <h3>/stories (POST Request)</h3>
+    <p>
+      Will create a new story, requires, at the very least, a string value for
+      the name parameter. Currently accepts parameters in form-data. Token with
+      key 'token' required in header.
+    </p>
+  </section>
+  <section>
+    <h3>REQUEST</h3>
+    <ul>
+      <li>Header > token: string (required)</li>
+      <li>name: string (required)</li>
+      <li>description: string (optional)</li>
+      <li>priority: string (optional)</li>
+      <li>
+        dependency: int (optional) - this if a foreign key relating to the id of
+        the parent story
+      </li>
+      <li>time-size: int</li>
+      <li>
+        epic-id: int - this is a foreign key relating to the id of the parent
+        epic
+      </li>
+    </ul>
+  </section>
+</section>
