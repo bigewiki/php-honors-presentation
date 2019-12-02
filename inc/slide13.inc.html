@@ -1,0 +1,88 @@
+<section data-background="#051c33">
+  <section>
+    <h3>/stories/${NUMBER} (GET Request)</h3>
+    <p>
+      No parameters required, use the story id in the path to get the tasks and
+      comments related to that story ex: /stories/1
+    </p>
+  </section>
+  <section>
+    <h3>RESPONSE</h3>
+    <div style="display:flex;">
+      <div>
+        <ul>
+          <li>success: int</li>
+          <li>res: object</li>
+          <li>res.story_id: int</li>
+          <li>res.story_name: string</li>
+          <li>res.story_description: string</li>
+          <li>res.story_owner: int</li>
+          <li>res.sprint_id: int</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>res.sprint_start: date</li>
+          <li>res.sprint_end: date</li>
+          <li>res.upstream_dependency: int</li>
+          <li>res.story_size: int</li>
+          <li>res.story_epic: int</li>
+          <li>res.story_status: string</li>
+          <li>res.tasks: array</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>RESPONSE (CONTINUED)</h3>
+    <div style="display:flex;">
+      <div>
+        <ul>
+          <li>res.tasks[i]: object</li>
+          <li>res.tasks[i].task_id: int</li>
+          <li>res.tasks[i].task_name: string</li>
+          <li>res.tasks[i].story_name: string</li>
+          <li>res.tasks[i].owner_id: int</li>
+          <li>res.tasks[i].owner_name: string</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>res.comments: array</li>
+          <li>res.comments[i]: object</li>
+          <li>res.comments[i].comment_id: int</li>
+          <li>res.comments[i].parent_id: int</li>
+          <li>res.comments[i].content: string</li>
+          <li>res.comments[i].user: string</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>OUTPUT OF GET REQUEST</h3>
+    <iframe
+      style="width: 100%; height: 300px;background-color:white;"
+      src="utils/getstories.html"
+    ></iframe>
+  </section>
+  <section
+    data-background-iframe="https://jsonformatter.org/"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/stories1.gist.html"
+    data-background-interactive
+  ></section>
+  <section>
+    <h3>displayStory Procedure</h3>
+    <script src="https://gist.github.com/bigewiki/1a611a3d7a71e73b13cc457c3b4c3f44.js"></script>
+  </section>
+  <section>
+    <h3>displayStoryTasks Procedure</h3>
+    <script src="https://gist.github.com/bigewiki/f04ceecc8096c3195dc99df85328faf1.js"></script>
+  </section>
+  <section>
+    <h3>displayStoryComments Procedure</h3>
+    <script src="https://gist.github.com/bigewiki/7de1d2eebbcd5eecd370904f9b9fff36.js"></script>
+  </section>
+</section>
