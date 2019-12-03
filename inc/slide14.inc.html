@@ -4,7 +4,7 @@
     <p>
       Will create a new story, requires, at the very least, a string value for
       the name parameter. Currently accepts parameters in form-data. Token with
-      key 'token' required in header.
+      key 'token' required in header. Response will output the new object.
     </p>
   </section>
   <section>
@@ -18,11 +18,37 @@
         dependency: int (optional) - this if a foreign key relating to the id of
         the parent story
       </li>
-      <li>time-size: int</li>
+      <li>time-size: int (optional)</li>
       <li>
-        epic-id: int - this is a foreign key relating to the id of the parent
-        epic
+        epic-id: int (optional) - this is a foreign key relating to the id of
+        the parent epic
       </li>
     </ul>
+  </section>
+  <section>
+    <h3>Response</h3>
+    <div style="display:flex; justify-content: space-between">
+      <div>
+        <ul>
+          <li>success: int</li>
+          <li>notice: string</li>
+          <li>res: object</li>
+          <li>res.id: int</li>
+          <li>res.name: string</li>
+          <li>res.description: string</li>
+          <li>res.status: string</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>res.owner: int</li>
+          <li>res.sprint_id: int</li>
+          <li>res.priority: string</li>
+          <li>res.dependency: int</li>
+          <li>res.time_size: int</li>
+          <li>res.epic_id: int</li>
+        </ul>
+      </div>
+    </div>
   </section>
 </section>
