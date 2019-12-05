@@ -64,7 +64,12 @@ const submitForm = e => {
 
   createStory(data);
 };
-// hide loader
-document.getElementById("loading").style.display = "none";
-// event listener
-document.forms[0].addEventListener("submit", submitForm);
+
+const setup = () => {
+  // hide loader
+  document.getElementById("loading").style.display = "none";
+  // event listener
+  document.forms[0].addEventListener("submit", submitForm);
+};
+
+window.onload = setup;
