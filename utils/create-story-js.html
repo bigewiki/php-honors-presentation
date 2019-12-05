@@ -1,0 +1,38 @@
+<head>
+  <!-- Compiled and minified CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+  />
+  <script src="create-story.js"></script>
+</head>
+<body style="background-color:white; padding: 50px;">
+  <form method="POST">
+    <label for="token">Token</label>
+    <input type="text" name="token" required /><br />
+    <label for="name">Story Name</label>
+    <input type="text" name="name" required /><br />
+    <label for="description">Story Description</label>
+    <input type="text" name="description" /><br />
+    <label for="priority">Story Priority</label>
+    <input type="text" name="priority" /><br />
+    <label for="dependency">Story Dependency</label>
+    <input type="number" name="dependency" /><br />
+    <label for="time-size">Story Size</label>
+    <input type="number" name="time-size" /><br />
+    <label for="epic-id">Parent Epic ID</label>
+    <input type="number" name="epic-id" /><br />
+    <br />
+    <input type="submit" />
+  </form>
+  <div id="loading" style="width:100%;justify-content: center">
+    <i style="font-size:50px" class="fas fa-spinner fa-spin"></i>
+  </div>
+</body>
