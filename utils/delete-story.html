@@ -1,0 +1,57 @@
+<head>
+  <!-- Compiled and minified CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+  />
+  <!-- <script src="delete-story.js"></script> -->
+  <script>
+    const getStories = () => {
+      fetch("https://nbtl.mesacc.edu/superuser/honors-api/stories")
+        .then(response => response.json())
+        .then(json => {
+          console.log(json.res);
+          div = document.getElementById("stories");
+          json.res.map((story, i) => {
+            div.innerHTML += `
+                <div class="col s12 m6" id="story-${i}">
+                    <div class="card">
+                        <span class="card-title">${story.name}</span>
+                        <p>
+                            ID: ${story.id}<br/>
+                            Priority: ${story.priority}<br/>
+                            Description: ${story.description}<br/>
+                            Owner: ${story.owner}<br/>
+                            Dependency: ${story.dependency}<br/>
+                            Size: ${story.time_size}<br/>
+                            Sprint: ${story.sprint_id}<br/>
+                            Epic: ${story.epic_id}
+                        </p>
+                        <div class="card-action">
+                            <a class="red lighten-1 text-red text-lighten-5 waves-effect waves-light btn-small">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+          });
+        });
+    };
+
+    window.onload = getStories;
+  </script>
+  <style>
+    .card {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body style="background-color:white; padding: 50px;">
+  <div class="row" id="stories"></div>
+</body>
