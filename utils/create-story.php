@@ -12,7 +12,7 @@ foreach ($_POST as $key => $value) {
 $body = json_encode($_POST);
 
 $request = curl_init();
-curl_setopt($request, CURLOPT_URL, "https://nbtl.mesacc.edu/superuser/honors-api/stories/");
+curl_setopt($request, CURLOPT_URL, "https://muniz.dev/honors-api/v1/stories/");
 curl_setopt($request, CURLOPT_HEADER, 1);
 curl_setopt($request, CURLOPT_POST, 1);
 curl_setopt($request, CURLOPT_HTTPHEADER, array("token:$token"));

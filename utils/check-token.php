@@ -15,6 +15,6 @@ $opts = array(
 $context = stream_context_create($opts);
 
 // Open the file using the HTTP headers set above
-$file = file_get_contents('https://nbtl.mesacc.edu/superuser/honors-api/users/check-token', false, $context);
+$file = file_get_contents('https://muniz.dev/honors-api/v1/users/check-token', false, $context);
 echo $file;
 ?>

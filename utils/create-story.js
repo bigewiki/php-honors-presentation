@@ -14,9 +14,8 @@ const createStory = data => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("token", apiToken);
-  let httpStatus;
 
-  fetch(`https://nbtl.mesacc.edu/superuser/honors-api/stories`, {
+  fetch(`https://muniz.dev/honors-api/v1/stories`, {
     method: "POST", // GET, POST, DELETE, ETC
     mode: "cors",
     cache: "no-cache",

@@ -3,7 +3,7 @@
     <h3>/stories (POST Request)</h3>
     <p>
       Will create a new story, requires, at the very least, a string value for
-      the name parameter. Currently accepts parameters in form-data. Token with
+      the name parameter. Expects request body to be in JSON format. Token with
       key 'token' required in header. Response will output the new object.
     </p>
   </section>
@@ -50,5 +50,28 @@
         </ul>
       </div>
     </div>
+  </section>
+  <section
+    data-background-iframe="utils/create-story.html"
+    data-background-interactive
+  ></section>
+  <section>
+    <script src="https://gist.github.com/bigewiki/086948bb829653ba8d00a0b64bdee909.js"></script>
+  </section>
+  <section
+    data-background-iframe="utils/create-story-js.html"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/createstoryjs.gist.html"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/createstorymethod.gist.html"
+    data-background-interactive
+  ></section>
+  <section>
+    <h2>createStory SQL Procedure</h2>
+    <script src="https://gist.github.com/bigewiki/88dc944b81e57c53ea49b5f7cfa8214d.js"></script>
   </section>
 </section>

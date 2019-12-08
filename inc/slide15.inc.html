@@ -1,1 +1,39 @@
-<section data-background="#051c33"></section>
+<section data-background="#051c33">
+  <section>
+    <h3>/stories/${NUMBER} (DELETE Request)</h3>
+    <p>
+      Use the story id in the path to delete that story. Will fail if story has
+      associated comments, tasks, or child dependencies (foreign key check
+      failure). Also requires token to be sent in header (key of 'token'). ex:
+      /stories/34
+    </p>
+  </section>
+  <section>
+    <h3>RESPONSE</h3>
+    <div>
+      <ul>
+        <li>success: int</li>
+        <li>notice: string</li>
+      </ul>
+    </div>
+  </section>
+  <section
+    data-background-iframe="utils/delete-story.html"
+    data-background-interactive
+  ></section>
+  <section>
+    This slide reserved for the code
+  </section>
+  <section>
+    <h3>$Stories->deleteStory Method</h3>
+    <script src="https://gist.github.com/bigewiki/41441121717ced116e7b1b247b1dfe5a.js"></script>
+  </section>
+  <section>
+    <h3>$Api->deleteRecord Method</h3>
+    <script src="https://gist.github.com/bigewiki/ba8cebe50c0c55362ca8c011cbe2eabd.js"></script>
+  </section>
+  <section>
+    <h3>deleteStory SQL Procedure</h3>
+    <script src="https://gist.github.com/bigewiki/fae424e3fda6a97e803398f5d5c2555f.js"></script>
+  </section>
+</section>

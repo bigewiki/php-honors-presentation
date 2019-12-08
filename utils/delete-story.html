@@ -14,7 +14,7 @@
   <!-- <script src="delete-story.js"></script> -->
   <script>
     const getStories = () => {
-      fetch("https://nbtl.mesacc.edu/superuser/honors-api/stories")
+      fetch("https://muniz.dev/honors-api/v1/stories")
         .then(response => response.json())
         .then(json => {
           console.log(json.res);
@@ -35,7 +35,7 @@
                             Epic: ${story.epic_id}
                         </p>
                         <div class="card-action">
-                            <a class="red lighten-1 text-red text-lighten-5 waves-effect waves-light btn-small">Delete</a>
+                            <a class="red lighten-1 text-red text-lighten-5 waves-effect waves-light btn-small" onclick="deleteStory(${story.id})">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,30 @@
         });
     };
 
-    window.onload = getStories;
+    const deleteStory = inputId => {
+      const apiToken = "i5d4pz918i.dhmpl5lii907kk86u483qbwatx5q6y45k550s9rp";
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("token", apiToken);
+
+      fetch(`https://muniz.dev/honors-api/v1/stories/${inputId}`, {
+        method: "DELETE", // GET, POST, DELETE, ETC
+        mode: "cors",
+        cache: "no-cache",
+        headers: myHeaders,
+        referrer: "no-referrer" // no-referrer, *client
+      })
+        .then(response => response.json())
+        .then(json => {
+          console.log(json);
+        });
+    };
+
+    const setup = () => {
+      getStories();
+    };
+
+    window.onload = setup;
   </script>
   <style>
     .card {
@@ -52,6 +75,6 @@
     }
   </style>
 </head>
-<body style="background-color:white; padding: 50px;">
+<body style="background-color:#e6e6e6; padding: 50px;">
   <div class="row" id="stories"></div>
 </body>
