@@ -45,7 +45,7 @@
     };
 
     const deleteStory = inputId => {
-      const apiToken = documement.getElementById("token").value;
+      const apiToken = document.getElementById("token").value;
       if (!apiToken) {
         alert("Please input token");
       }
@@ -82,7 +82,7 @@
   <div class="row">
     <div class="card">
       <input id="token" type="text" class="token" />
-      <label for="token">First Name</label>
+      <label for="token">Token</label>
     </div>
   </div>
   <div class="row" id="stories"></div>
