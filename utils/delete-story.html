@@ -19,6 +19,7 @@
         .then(json => {
           console.log(json.res);
           div = document.getElementById("stories");
+          div.innerHTML = "";
           json.res.map((story, i) => {
             div.innerHTML += `
                 <div class="col s12 m6" id="story-${i}">
@@ -63,6 +64,7 @@
         .then(response => response.json())
         .then(json => {
           console.log(json);
+          getStories();
         });
     };
 
