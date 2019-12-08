@@ -1,1 +1,70 @@
-<section data-background="#051c33"></section>
+<section data-background="#051c33">
+  <section>
+    <h3>/stories/${NUMBER} (PATCH Request)</h3>
+    <p>
+      Use the story id in the path to update that story. Will fail if the story
+      does not exist. Requires key 'token' with token value in header. Accepts
+      JSON object in request body identifying keys to be udpated:
+      <br /><br />
+      ex path: /stories/34 ex body: {"name":"my homework","status":"in
+      progress"}
+    </p>
+  </section>
+  <section>
+    <h3>Request</h3>
+    <div style="display:flex;">
+      <ul>
+        <li>Header > token: string (required)</li>
+        <li>name: string (optional)</li>
+        <li>description: string (optional)</li>
+        <li>owner: int (optional)</li>
+        <li>sprint: int (optional)</li>
+      </ul>
+      <ul>
+        <li>priority: string (optional)</li>
+        <li>dependency: int (optional)</li>
+        <li>size: int (optional)</li>
+        <li>epic: int (optional)</li>
+        <li>status: string (optional)</li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <h3>RESPONSE</h3>
+    <div style="display:flex;">
+      <ul>
+        <li>success: int</li>
+        <li>res: object</li>
+        <li>res.story_id: int</li>
+        <li>res.story_name: string</li>
+        <li>res.story_description: string</li>
+        <li>res.story_owner: int</li>
+        <li>res.sprint_id: int</li>
+      </ul>
+      <ul>
+        <li>res.sprint_start: date</li>
+        <li>res.sprint_end: date</li>
+        <li>res.upstream_dependency: int</li>
+        <li>res.story_size: int</li>
+        <li>res.story_epic: int</li>
+        <li>res.story_status: string</li>
+      </ul>
+    </div>
+  </section>
+  <section
+    data-background-iframe="utils/update-story.html"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/udpatestory.gist.html"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/patchstorymethod.gist.html"
+    data-background-interactive
+  ></section>
+  <section
+    data-background-iframe="utils/patchstoryproc.gist.html"
+    data-background-interactive
+  ></section>
+</section>

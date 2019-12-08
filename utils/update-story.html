@@ -1,0 +1,126 @@
+<head>
+  <!-- Compiled and minified CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script
+    src="https://kit.fontawesome.com/9bf2aeb3dd.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const updateStory = (data, storyId) => {
+      // saving our token
+      const apiToken = data.token;
+      // removing the token from the data
+      delete data.token;
+      // removing any empty values
+      Object.keys(data).map(key => {
+        if (!data[key]) {
+          delete data[key];
+        }
+      });
+
+      // creating headers for our request
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("token", apiToken);
+
+      fetch(`https://muniz.dev/honors-api/v1/stories/${storyId}`, {
+        method: "PATCH", // GET, POST, DELETE, ETC
+        mode: "cors",
+        cache: "no-cache",
+        headers: myHeaders,
+        referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+      })
+        .then(response => response.json())
+        .then(json => {
+          // working with the output area to display the data
+          let output = document.getElementById("loading");
+          output.innerHTML = "";
+          document.getElementById("loading").style.display = "block";
+          Object.keys(json).map(key => {
+            if (key !== "res") {
+              output.innerHTML += `<h4>${key} : ${json[key]}</h4>`;
+            } else {
+              Object.keys(json.res).map(key => {
+                output.innerHTML += `<h4>res.${key} : ${json.res[key]}</h4>`;
+              });
+            }
+          });
+        });
+    };
+
+    const getInputValue = name => {
+      form = document.forms[0];
+      return form[name].value;
+    };
+
+    const submitForm = e => {
+      e.preventDefault();
+      document.forms[0].style.display = "none";
+      document.getElementById("loading").style.display = "flex";
+
+      storyId = document.getElementById("story-id").value;
+
+      const data = {
+        token: getInputValue("token"),
+        name: getInputValue("name"),
+        description: getInputValue("description"),
+        priority: getInputValue("priority"),
+        dependency: getInputValue("dependency"),
+        "time-size": getInputValue("time-size"),
+        "epic-id": getInputValue("epic-id")
+      };
+
+      updateStory(data, storyId);
+    };
+
+    const setup = () => {
+      // hide loader
+      document.getElementById("loading").style.display = "none";
+      // event listener
+      document.forms[0].addEventListener("submit", submitForm);
+    };
+
+    window.onload = setup;
+  </script>
+</head>
+<body style="background-color:white; padding: 50px;">
+  <form method="POST">
+    <h2>Update story via javscript fetch</h2>
+    <label for="token">Token</label>
+    <input type="text" name="token" required /><br />
+    <label for="story-id">Story Id</label>
+    <input type="text" id="story-id" name="story-id" /><br />
+    <label for="name">Updated Story Name</label>
+    <input type="text" name="name" /><br />
+    <label for="description">Updated Story Description</label>
+    <input type="text" name="description" /><br />
+    <label for="priority">Updated Story Priority</label>
+    <input type="text" name="priority" /><br />
+    <label for="dependency">Updated Story Dependency</label>
+    <input type="number" name="dependency" /><br />
+    <label for="time-size">Updated Story Size</label>
+    <input type="number" name="time-size" /><br />
+    <label for="epic-id">Updated Parent Epic ID</label>
+    <input type="number" name="epic-id" /><br />
+    <br />
+    <input type="submit" />
+  </form>
+  <div id="loading" style="width:100%;justify-content: center">
+    <i style="font-size:50px" class="fas fa-spinner fa-spin"></i>
+  </div>
+  <script>
+    document.getElementById("loading").style.display = "none";
+    const loading = () => {
+      document.forms[0].style.display = "none";
+      document.getElementById("loading").style.display = "flex";
+    };
+    document.forms[0].onsubmit = loading;
+  </script>
+</body>
