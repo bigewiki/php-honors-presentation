@@ -1,3 +1,4 @@
+<body style="background-color:white;font-size:20px;">
 <?php
 //set the token and remove from POST array
 $token = $_POST['token'];
@@ -19,3 +20,4 @@ curl_setopt($request, CURLOPT_HTTPHEADER, array("token:$token"));
 curl_setopt($request, CURLOPT_POSTFIELDS, $body);
 curl_exec($request);
 ?>
+</body>

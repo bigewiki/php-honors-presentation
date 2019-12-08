@@ -45,7 +45,10 @@
     };
 
     const deleteStory = inputId => {
-      const apiToken = "i5d4pz918i.dhmpl5lii907kk86u483qbwatx5q6y45k550s9rp";
+      const apiToken = documement.getElementById("token").value;
+      if (!apiToken) {
+        alert("Please input token");
+      }
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append("token", apiToken);
@@ -76,5 +79,11 @@
   </style>
 </head>
 <body style="background-color:#e6e6e6; padding: 50px;">
+  <div class="row">
+    <div class="card">
+      <input id="token" type="text" class="token" />
+      <label for="token">First Name</label>
+    </div>
+  </div>
   <div class="row" id="stories"></div>
 </body>
